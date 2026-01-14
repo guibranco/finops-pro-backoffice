@@ -40,19 +40,19 @@ const ChargebackForm: React.FC = () => {
   };
 
   return (
-    <div className="max-w-2xl mx-auto bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+    <div className="max-w-2xl mx-auto bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 transition-colors">
       <div className="mb-8">
-        <h3 className="text-2xl font-bold text-brand-purple">Report Chargeback</h3>
-        <p className="text-gray-500">Record a customer-initiated dispute from the issuing bank.</p>
+        <h3 className="text-2xl font-bold text-brand-purple dark:text-brand-lime">Report Chargeback</h3>
+        <p className="text-gray-500 dark:text-gray-400">Record a customer-initiated dispute from the issuing bank.</p>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="space-y-2">
-          <label className="text-sm font-semibold text-gray-700">Original Transaction Reference</label>
+          <label className="text-sm font-semibold text-gray-700 dark:text-gray-300">Original Transaction Reference</label>
           <input
             required
             type="text"
-            className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple outline-none transition-all"
+            className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple outline-none transition-all"
             value={formData.originalRef}
             onChange={(e) => setFormData({ ...formData, originalRef: e.target.value })}
           />
@@ -60,22 +60,22 @@ const ChargebackForm: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="space-y-2">
-            <label className="text-sm font-semibold text-gray-700">Amount ($)</label>
+            <label className="text-sm font-semibold text-gray-700 dark:text-gray-300">Amount ($)</label>
             <input
               required
               type="number"
               step="0.01"
-              className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple outline-none transition-all"
+              className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple outline-none transition-all"
               value={formData.amount}
               onChange={(e) => setFormData({ ...formData, amount: e.target.value })}
             />
           </div>
           <div className="space-y-2">
-            <label className="text-sm font-semibold text-gray-700">Chargeback Number</label>
+            <label className="text-sm font-semibold text-gray-700 dark:text-gray-300">Chargeback Number</label>
             <input
               required
               type="text"
-              className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple outline-none transition-all"
+              className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple outline-none transition-all"
               value={formData.chargebackNumber}
               onChange={(e) => setFormData({ ...formData, chargebackNumber: e.target.value })}
             />
@@ -83,22 +83,22 @@ const ChargebackForm: React.FC = () => {
         </div>
 
         <div className="space-y-2">
-          <label className="text-sm font-semibold text-gray-700">Dispute Date</label>
+          <label className="text-sm font-semibold text-gray-700 dark:text-gray-300">Dispute Date</label>
           <input
             required
             type="date"
-            className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple outline-none transition-all"
+            className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple outline-none transition-all"
             value={formData.date}
             onChange={(e) => setFormData({ ...formData, date: e.target.value })}
           />
         </div>
 
         <div className="space-y-2">
-          <label className="text-sm font-semibold text-gray-700">Supporting Document (PDF/Image)</label>
+          <label className="text-sm font-semibold text-gray-700 dark:text-gray-300">Supporting Document (PDF/Image)</label>
           <div 
             onClick={() => fileInputRef.current?.click()}
             className={`border-2 border-dashed rounded-xl p-8 flex flex-col items-center justify-center cursor-pointer transition-colors ${
-              file ? 'border-brand-lime bg-lime-50/30' : 'border-gray-200 hover:border-brand-purple bg-gray-50'
+              file ? 'border-brand-lime bg-brand-lime/5' : 'border-gray-200 dark:border-gray-600 hover:border-brand-purple dark:hover:border-brand-lime bg-gray-50 dark:bg-gray-900/50'
             }`}
           >
             <input 
@@ -109,27 +109,27 @@ const ChargebackForm: React.FC = () => {
               accept=".pdf,.png,.jpg,.jpeg"
             />
             {file ? (
-              <div className="flex items-center space-x-3 text-brand-purple">
+              <div className="flex items-center space-x-3 text-brand-purple dark:text-brand-lime">
                 <FileText size={32} />
                 <div className="text-left">
-                  <p className="font-semibold text-sm truncate max-w-[200px]">{file.name}</p>
-                  <p className="text-xs text-gray-500">{(file.size / 1024).toFixed(1)} KB</p>
+                  <p className="font-semibold text-sm truncate max-w-[200px] text-gray-800 dark:text-gray-100">{file.name}</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400">{(file.size / 1024).toFixed(1)} KB</p>
                 </div>
                 <button 
                   onClick={(e) => {
                     e.stopPropagation();
                     setFile(null);
                   }}
-                  className="p-1 hover:bg-red-100 rounded-full text-red-500"
+                  className="p-1 hover:bg-red-100 dark:hover:bg-red-900/30 rounded-full text-red-500"
                 >
                   <X size={16} />
                 </button>
               </div>
             ) : (
               <>
-                <Upload size={32} className="text-gray-400 mb-2" />
-                <p className="text-sm font-medium text-gray-600">Click to upload file or drag & drop</p>
-                <p className="text-xs text-gray-400 mt-1">Official bank chargeback notification required</p>
+                <Upload size={32} className="text-gray-400 dark:text-gray-600 mb-2" />
+                <p className="text-sm font-medium text-gray-600 dark:text-gray-400">Click to upload file or drag & drop</p>
+                <p className="text-xs text-gray-400 dark:text-gray-500 mt-1">Official bank chargeback notification required</p>
               </>
             )}
           </div>
@@ -141,7 +141,7 @@ const ChargebackForm: React.FC = () => {
           className={`w-full py-4 rounded-xl font-bold flex items-center justify-center space-x-2 transition-all ${
             success 
               ? 'bg-green-500 text-white' 
-              : 'bg-brand-purple text-white hover:bg-purple-800 shadow-lg'
+              : 'bg-brand-purple dark:bg-brand-lime text-white dark:text-black hover:bg-purple-800 dark:hover:bg-brand-limeDark shadow-lg'
           } disabled:opacity-50`}
         >
           {isSubmitting ? (

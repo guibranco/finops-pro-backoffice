@@ -48,10 +48,10 @@ const StatusCheck: React.FC = () => {
 
   return (
     <div className="max-w-4xl mx-auto space-y-8">
-      <div className="bg-brand-purple p-8 rounded-2xl shadow-xl text-white relative overflow-hidden">
+      <div className="bg-brand-purple dark:bg-black p-8 rounded-2xl shadow-xl text-white relative overflow-hidden transition-colors border dark:border-gray-800">
         <div className="relative z-10">
           <h3 className="text-2xl font-bold mb-2">Transaction Status Lookup</h3>
-          <p className="text-purple-100 mb-6 opacity-80">Trace and verify transaction lifecycle across all ledgers.</p>
+          <p className="text-purple-100 dark:text-gray-400 mb-6 opacity-80">Trace and verify transaction lifecycle across all ledgers.</p>
           
           <form onSubmit={handleSearch} className="relative group">
             <input
@@ -78,67 +78,67 @@ const StatusCheck: React.FC = () => {
       {loading && (
         <div className="flex flex-col items-center justify-center p-12">
           <div className="w-12 h-12 border-4 border-brand-purple/20 border-t-brand-purple rounded-full animate-spin mb-4"></div>
-          <p className="text-gray-500 font-medium">Querying ledger systems...</p>
+          <p className="text-gray-500 dark:text-gray-400 font-medium">Querying ledger systems...</p>
         </div>
       )}
 
       {result && (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 animate-in slide-in-from-bottom-4 duration-500">
           <div className="lg:col-span-2 space-y-6">
-            <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-              <div className="flex items-center justify-between mb-8 pb-4 border-b border-gray-50">
-                <h4 className="font-bold text-gray-800 text-lg uppercase tracking-wider">Details</h4>
-                <div className="flex items-center space-x-2 px-4 py-2 bg-gray-50 rounded-full">
+            <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 transition-colors">
+              <div className="flex items-center justify-between mb-8 pb-4 border-b border-gray-50 dark:border-gray-700">
+                <h4 className="font-bold text-gray-800 dark:text-gray-100 text-lg uppercase tracking-wider">Details</h4>
+                <div className="flex items-center space-x-2 px-4 py-2 bg-gray-50 dark:bg-gray-900 rounded-full transition-colors">
                   {getStatusIcon(result.status)}
-                  <span className="font-bold text-xs">{result.status}</span>
+                  <span className="font-bold text-xs dark:text-gray-100">{result.status}</span>
                 </div>
               </div>
 
               <div className="grid grid-cols-2 gap-y-8">
                 <div>
-                  <p className="text-xs text-gray-400 uppercase font-bold mb-1">Reference</p>
-                  <p className="font-mono text-gray-800">{result.reference}</p>
+                  <p className="text-xs text-gray-400 dark:text-gray-500 uppercase font-bold mb-1">Reference</p>
+                  <p className="font-mono text-gray-800 dark:text-gray-100">{result.reference}</p>
                 </div>
                 <div>
-                  <p className="text-xs text-gray-400 uppercase font-bold mb-1">Amount</p>
-                  <p className="text-xl font-bold text-gray-800">${result.amount.toFixed(2)}</p>
+                  <p className="text-xs text-gray-400 dark:text-gray-500 uppercase font-bold mb-1">Amount</p>
+                  <p className="text-xl font-bold text-gray-800 dark:text-gray-100">${result.amount.toFixed(2)}</p>
                 </div>
                 <div>
-                  <p className="text-xs text-gray-400 uppercase font-bold mb-1">Date</p>
-                  <p className="text-gray-800">{result.date}</p>
+                  <p className="text-xs text-gray-400 dark:text-gray-500 uppercase font-bold mb-1">Date</p>
+                  <p className="text-gray-800 dark:text-gray-100">{result.date}</p>
                 </div>
                 <div>
-                  <p className="text-xs text-gray-400 uppercase font-bold mb-1">Category</p>
-                  <p className="text-gray-800">{result.type}</p>
+                  <p className="text-xs text-gray-400 dark:text-gray-500 uppercase font-bold mb-1">Category</p>
+                  <p className="text-gray-800 dark:text-gray-100">{result.type}</p>
                 </div>
               </div>
             </div>
 
-            <div className="bg-brand-lime/10 border-l-4 border-brand-lime p-6 rounded-r-2xl flex items-start space-x-4">
+            <div className="bg-brand-lime/10 dark:bg-brand-lime/5 border-l-4 border-brand-lime p-6 rounded-r-2xl flex items-start space-x-4 transition-colors">
                <div className="p-2 bg-brand-lime rounded-lg text-brand-purple shadow-sm">
                   <Sparkles size={20} />
                </div>
                <div>
-                 <h5 className="font-bold text-brand-purple mb-1">AI Intelligence Insight</h5>
-                 <p className="text-gray-700 text-sm leading-relaxed">
+                 <h5 className="font-bold text-brand-purple dark:text-brand-lime mb-1">AI Intelligence Insight</h5>
+                 <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
                    {insight || 'Analyzing transaction patterns...'}
                  </p>
                </div>
             </div>
           </div>
 
-          <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 h-fit">
-            <h4 className="font-bold text-gray-800 mb-6">Suggested Actions</h4>
+          <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 h-fit transition-colors">
+            <h4 className="font-bold text-gray-800 dark:text-gray-100 mb-6">Suggested Actions</h4>
             <div className="space-y-3">
-              <button className="w-full flex items-center justify-between p-4 bg-gray-50 hover:bg-brand-purple hover:text-white rounded-xl transition-all group">
+              <button className="w-full flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-900 hover:bg-brand-purple dark:hover:bg-brand-lime hover:text-white dark:hover:text-black rounded-xl transition-all group">
                 <span className="text-sm font-semibold">Initiate Refund</span>
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </button>
-              <button className="w-full flex items-center justify-between p-4 bg-gray-50 hover:bg-brand-purple hover:text-white rounded-xl transition-all group">
+              <button className="w-full flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-900 hover:bg-brand-purple dark:hover:bg-brand-lime hover:text-white dark:hover:text-black rounded-xl transition-all group">
                 <span className="text-sm font-semibold">Flag for Review</span>
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </button>
-              <button className="w-full flex items-center justify-between p-4 bg-gray-50 hover:bg-brand-purple hover:text-white rounded-xl transition-all group">
+              <button className="w-full flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-900 hover:bg-brand-purple dark:hover:bg-brand-lime hover:text-white dark:hover:text-black rounded-xl transition-all group">
                 <span className="text-sm font-semibold">Download Receipt</span>
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </button>
