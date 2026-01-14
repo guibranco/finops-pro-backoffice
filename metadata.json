@@ -1,0 +1,5 @@
+{
+  "name": "FinOps Pro - Finance Back-Office",
+  "description": "A comprehensive finance back-office suite for managing manual refunds, chargebacks, transaction tracking, and ledger resynchronization with intelligent insights powered by Gemini.",
+  "requestFramePermissions": []
+}
