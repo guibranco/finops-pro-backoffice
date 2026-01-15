@@ -1,6 +1,6 @@
 
-import React, { useState, useRef } from 'react';
-import { Upload, FileText, CheckCircle2, X } from 'lucide-react';
+import React, { useState } from 'react';
+import { CheckCircle2 } from 'lucide-react';
 
 const ChargebackForm: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -9,10 +9,8 @@ const ChargebackForm: React.FC = () => {
     chargebackNumber: '',
     date: new Date().toISOString().split('T')[0],
   });
-  const [file, setFile] = useState<File | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
-  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -22,7 +20,6 @@ const ChargebackForm: React.FC = () => {
       setSuccess(true);
       setTimeout(() => {
         setSuccess(false);
-        setFile(null);
         setFormData({
             originalRef: '',
             amount: '',
@@ -31,12 +28,6 @@ const ChargebackForm: React.FC = () => {
         });
       }, 3000);
     }, 2000);
-  };
-
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      setFile(e.target.files[0]);
-    }
   };
 
   return (
@@ -91,48 +82,6 @@ const ChargebackForm: React.FC = () => {
             value={formData.date}
             onChange={(e) => setFormData({ ...formData, date: e.target.value })}
           />
-        </div>
-
-        <div className="space-y-2">
-          <label className="text-sm font-semibold text-gray-700 dark:text-gray-300">Supporting Document (PDF/Image)</label>
-          <div 
-            onClick={() => fileInputRef.current?.click()}
-            className={`border-2 border-dashed rounded-xl p-8 flex flex-col items-center justify-center cursor-pointer transition-colors ${
-              file ? 'border-brand-lime bg-brand-lime/5' : 'border-gray-200 dark:border-gray-600 hover:border-brand-purple dark:hover:border-brand-lime bg-gray-50 dark:bg-gray-900/50'
-            }`}
-          >
-            <input 
-              type="file" 
-              className="hidden" 
-              ref={fileInputRef} 
-              onChange={handleFileChange}
-              accept=".pdf,.png,.jpg,.jpeg"
-            />
-            {file ? (
-              <div className="flex items-center space-x-3 text-brand-purple dark:text-brand-lime">
-                <FileText size={32} />
-                <div className="text-left">
-                  <p className="font-semibold text-sm truncate max-w-[200px] text-gray-800 dark:text-gray-100">{file.name}</p>
-                  <p className="text-xs text-gray-500 dark:text-gray-400">{(file.size / 1024).toFixed(1)} KB</p>
-                </div>
-                <button 
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setFile(null);
-                  }}
-                  className="p-1 hover:bg-red-100 dark:hover:bg-red-900/30 rounded-full text-red-500"
-                >
-                  <X size={16} />
-                </button>
-              </div>
-            ) : (
-              <>
-                <Upload size={32} className="text-gray-400 dark:text-gray-600 mb-2" />
-                <p className="text-sm font-medium text-gray-600 dark:text-gray-400">Click to upload file or drag & drop</p>
-                <p className="text-xs text-gray-400 dark:text-gray-500 mt-1">Official bank chargeback notification required</p>
-              </>
-            )}
-          </div>
         </div>
 
         <button
