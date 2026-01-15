@@ -9,12 +9,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
                         brand: {
                             purple: '#79378B',
+                            purpleDark: '#5e2b6c',
                             lime: '#93CD3F',
+                            limeDark: '#76a432',
                             dark: '#1F2937'
                         }
                     },
@@ -26,7 +29,8 @@
         }
     </script>
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #f9fafb; }
+        body { font-family: 'Inter', sans-serif; background-color: #f9fafb; transition: background-color 0.3s ease; }
+        .dark body { background-color: #111827; }
         .bg-brand-purple { background-color: #79378B; }
         .text-brand-purple { color: #79378B; }
         .bg-brand-lime { background-color: #93CD3F; }
