@@ -2,6 +2,7 @@
   "name": "finops-pro---finance-back-office",
   "private": true,
   "version": "0.0.0",
+  "homepage": "http://guilherme.stracini.com.br/finops-pro-backoffice/",
   "type": "module",
   "scripts": {
     "dev": "vite",
