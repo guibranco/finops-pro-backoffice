@@ -56,7 +56,7 @@ const StatusCheck: React.FC = () => {
           <form onSubmit={handleSearch} className="relative group">
             <input
               type="text"
-              placeholder="Enter Transaction Reference (e.g. TX-48819)..."
+              placeholder="Enter Transaction Reference (e.g. OUT001234567-1-1-VEH-1)..."
               className="w-full bg-white/10 border border-white/20 rounded-xl px-6 py-4 pl-12 focus:bg-white focus:text-gray-900 focus:outline-none focus:ring-4 focus:ring-brand-lime/30 transition-all text-white placeholder-purple-200"
               value={ref}
               onChange={(e) => setRef(e.target.value)}

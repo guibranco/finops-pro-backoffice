@@ -36,7 +36,7 @@ const ResubmissionForm: React.FC = () => {
             <input
               required
               type="text"
-              placeholder="e.g. F-RF-123456"
+              placeholder="e.g. OUT001234567-1-1-VEH-1"
               className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple outline-none transition-all"
               value={failedRef}
               onChange={(e) => setFailedRef(e.target.value)}
@@ -84,7 +84,7 @@ const ResubmissionForm: React.FC = () => {
             {[1, 2, 3].map(i => (
                 <div key={i} className="flex items-center justify-between py-2 border-b border-gray-50 last:border-0">
                     <div>
-                        <p className="text-sm font-semibold text-gray-800">F-RF-99220{i}</p>
+                        <p className="text-sm font-semibold text-gray-800">OUT001234567-1-1-VEH-{i}</p>
                         <p className="text-xs text-gray-500">Submitted 2 hours ago</p>
                     </div>
                     <span className="px-2 py-1 bg-lime-100 text-brand-purple text-[10px] font-bold rounded uppercase transition-colors">Processing</span>

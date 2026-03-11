@@ -43,6 +43,7 @@ const ChargebackForm: React.FC = () => {
           <input
             required
             type="text"
+            placeholder="e.g. OUT001234567-1-1-VEH-1"
             className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple outline-none transition-all"
             value={formData.originalRef}
             onChange={(e) => setFormData({ ...formData, originalRef: e.target.value })}

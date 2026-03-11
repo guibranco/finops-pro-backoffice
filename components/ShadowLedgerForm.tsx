@@ -36,7 +36,7 @@ const ShadowLedgerForm: React.FC = () => {
             <input
               required
               type="text"
-              placeholder="e.g. TXN-LEDG-5520"
+              placeholder="e.g. OUT001234567-1-1-VEH-1"
               className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple outline-none transition-all placeholder:text-gray-400"
               value={ref}
               onChange={(e) => setRef(e.target.value)}
@@ -88,7 +88,7 @@ const ShadowLedgerForm: React.FC = () => {
                 <div key={i} className="p-4 flex items-center justify-between hover:bg-gray-50/50 transition-colors">
                     <div className="flex items-center space-x-3 text-gray-700">
                         <div className="w-2 h-2 rounded-full bg-brand-lime"></div>
-                        <span className="text-sm font-mono">TX-SYNC-9{i}42</span>
+                        <span className="text-sm font-mono">OUT001234567-1-1-VEH-{i}</span>
                     </div>
                     <span className="text-xs text-gray-400">Just now</span>
                 </div>

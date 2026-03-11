@@ -38,7 +38,7 @@ const ManualRefundForm: React.FC = () => {
             <input
               required
               type="text"
-              placeholder="e.g. TX-12345"
+              placeholder="e.g. OUT001234567-1-1-VEH-1"
               className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple outline-none transition-all placeholder:text-gray-400"
               value={formData.originalRef}
               onChange={(e) => setFormData({ ...formData, originalRef: e.target.value })}
@@ -49,7 +49,7 @@ const ManualRefundForm: React.FC = () => {
             <input
               required
               type="text"
-              placeholder="e.g. RF-98765"
+              placeholder="e.g. OUT001234567-1-1-VEH-1-RF"
               className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple outline-none transition-all placeholder:text-gray-400"
               value={formData.transactionRef}
               onChange={(e) => setFormData({ ...formData, transactionRef: e.target.value })}
