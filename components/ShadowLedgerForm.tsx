@@ -19,32 +19,32 @@ const ShadowLedgerForm: React.FC = () => {
 
   return (
     <div className="max-w-2xl mx-auto">
-      <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 transition-colors">
+      <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 transition-colors">
         <div className="flex items-center space-x-4 mb-8">
-            <div className="p-3 bg-brand-purple/10 dark:bg-brand-lime/10 rounded-xl text-brand-purple dark:text-brand-lime transition-colors">
+            <div className="p-3 bg-brand-purple/10 rounded-xl text-brand-purple transition-colors">
                 <Database size={24} />
             </div>
             <div>
-                <h3 className="text-2xl font-bold text-brand-purple dark:text-brand-lime">Shadow Ledger Re-sync</h3>
-                <p className="text-gray-500 dark:text-gray-400">Force-sync collection items to the internal shadow ledger.</p>
+                <h3 className="text-2xl font-bold text-brand-purple">Shadow Ledger Re-sync</h3>
+                <p className="text-gray-500">Force-sync collection items to the internal shadow ledger.</p>
             </div>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="space-y-2">
-            <label className="text-sm font-semibold text-gray-700 dark:text-gray-300">Transaction Reference</label>
+            <label className="text-sm font-semibold text-gray-700">Transaction Reference</label>
             <input
               required
               type="text"
               placeholder="e.g. TXN-LEDG-5520"
-              className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple outline-none transition-all placeholder:text-gray-400 dark:placeholder:text-gray-600"
+              className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple outline-none transition-all placeholder:text-gray-400"
               value={ref}
               onChange={(e) => setRef(e.target.value)}
             />
           </div>
 
-          <div className="bg-brand-lime/10 dark:bg-brand-purple/10 p-4 rounded-xl border border-brand-lime/20 dark:border-brand-purple/20 transition-colors">
-            <p className="text-xs text-brand-purple/80 dark:text-gray-300 font-medium leading-relaxed">
+          <div className="bg-brand-lime/10 p-4 rounded-xl border border-brand-lime/20 transition-colors">
+            <p className="text-xs text-brand-purple/80 font-medium leading-relaxed">
               Pushing a transaction to the shadow ledger will verify the item against current batch records and create an entry if missing. This is usually required for reconciliation discrepancies.
             </p>
           </div>
@@ -55,7 +55,7 @@ const ShadowLedgerForm: React.FC = () => {
             className={`w-full py-4 rounded-xl font-bold flex items-center justify-center space-x-2 transition-all ${
               success 
                 ? 'bg-green-500 text-white' 
-                : 'bg-brand-purple dark:bg-brand-lime text-white dark:text-black hover:bg-purple-800 dark:hover:bg-brand-limeDark shadow-lg'
+                : 'bg-brand-purple text-white hover:bg-purple-800 shadow-lg'
             } disabled:opacity-50`}
           >
             {isSubmitting ? (
@@ -75,18 +75,18 @@ const ShadowLedgerForm: React.FC = () => {
         </form>
       </div>
 
-      <div className="mt-8 bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden transition-colors">
-        <div className="p-4 bg-gray-50 dark:bg-gray-900 border-b border-gray-100 dark:border-gray-700 flex items-center justify-between transition-colors">
-            <div className="flex items-center space-x-2 text-gray-700 dark:text-gray-300">
+      <div className="mt-8 bg-white rounded-2xl border border-gray-100 overflow-hidden transition-colors">
+        <div className="p-4 bg-gray-50 border-b border-gray-100 flex items-center justify-between transition-colors">
+            <div className="flex items-center space-x-2 text-gray-700">
                 <History size={16} />
                 <span className="text-sm font-bold uppercase tracking-wider">Recent Syncs</span>
             </div>
             <span className="text-[10px] font-bold text-gray-400">Live Feed</span>
         </div>
-        <div className="divide-y divide-gray-50 dark:divide-gray-700">
+        <div className="divide-y divide-gray-50">
             {[1, 2, 3].map(i => (
-                <div key={i} className="p-4 flex items-center justify-between hover:bg-gray-50/50 dark:hover:bg-gray-900/50 transition-colors">
-                    <div className="flex items-center space-x-3 text-gray-700 dark:text-gray-300">
+                <div key={i} className="p-4 flex items-center justify-between hover:bg-gray-50/50 transition-colors">
+                    <div className="flex items-center space-x-3 text-gray-700">
                         <div className="w-2 h-2 rounded-full bg-brand-lime"></div>
                         <span className="text-sm font-mono">TX-SYNC-9{i}42</span>
                     </div>
