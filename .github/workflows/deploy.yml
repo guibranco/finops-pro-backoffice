@@ -37,7 +37,7 @@ jobs:
         uses: gittools/actions/gitversion/execute@v4.0.0
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: 22
           cache: "npm"
@@ -71,7 +71,7 @@ jobs:
 
     steps:
       - name: Download artifact
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: build-output
           path: ./dist
@@ -80,12 +80,12 @@ jobs:
         uses: actions/configure-pages@v5
         
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: './dist'
           
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
   
   create_release:
     name: Create release
