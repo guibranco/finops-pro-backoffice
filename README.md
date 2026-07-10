@@ -20,6 +20,7 @@ A comprehensive finance back-office suite for managing manual refunds, chargebac
 - [Tailwind CSS](https://tailwindcss.com/) for styling
 - [Recharts](https://recharts.org/) for data visualization
 - [lucide-react](https://lucide.dev/) for icons
+- [Vitest](https://vitest.dev/) + [Testing Library](https://testing-library.com/) for unit tests
 
 ## Run Locally
 
@@ -38,13 +39,17 @@ A comprehensive finance back-office suite for managing manual refunds, chargebac
 | `npm run build`    | Type-check and build for production  |
 | `npm run preview`  | Preview the production build locally |
 | `npm run lint`     | Type-check the project (`tsc --noEmit`) |
+| `npm test`         | Run the test suite once |
+| `npm run test:watch` | Run the test suite in watch mode |
+| `npm run test:coverage` | Run the test suite and generate a coverage report in `coverage/` |
 
 ## Deployment
 
 Pushes to `main` trigger the [Build & Deploy](.github/workflows/deploy.yml) workflow, which:
 
 1. Computes the release version with [GitVersion](https://gitversion.net/) (see [`GitVersion.yml`](GitVersion.yml))
-2. Builds the app and publishes it to GitHub Pages
-3. Creates a GitHub release tagged `v<version>` with auto-generated release notes
+2. Installs dependencies and runs the test suite with coverage
+3. Builds the app and publishes it to GitHub Pages
+4. Creates a GitHub release tagged `v<version>` with auto-generated release notes
 
-Pull requests are validated by the [Build and Test](.github/workflows/build.yml) workflow.
+Pull requests are validated by the [Build and Test](.github/workflows/build.yml) workflow, which runs the test suite (with coverage) and the production build.
