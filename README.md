@@ -4,7 +4,7 @@
 
 # FinOps Pro — Finance Back-Office
 
-A comprehensive finance back-office suite for managing manual refunds, chargebacks, transaction tracking, and ledger resynchronization — with intelligent insights powered by Gemini.
+A comprehensive finance back-office suite for managing manual refunds, chargebacks, transaction tracking, and ledger resynchronization.
 
 **Live app:** https://guilherme.stracini.com.br/finops-pro-backoffice/
 
@@ -16,7 +16,6 @@ A comprehensive finance back-office suite for managing manual refunds, chargebac
 - **Resubmissions** — resubmit failed or rejected transactions
 - **Status Check** — look up the status of a transaction
 - **Shadow Ledger** — resynchronize the shadow ledger against source-of-truth data
-- **AI-powered insights** — Gemini integration surfaces intelligent summaries and suggestions
 
 ## Tech Stack
 
@@ -25,7 +24,6 @@ A comprehensive finance back-office suite for managing manual refunds, chargebac
 - [Tailwind CSS](https://tailwindcss.com/) for styling
 - [Recharts](https://recharts.org/) for data visualization
 - [lucide-react](https://lucide.dev/) for icons
-- [`@google/genai`](https://www.npmjs.com/package/@google/genai) (Gemini API) for AI features
 
 ## Run Locally
 
@@ -33,8 +31,7 @@ A comprehensive finance back-office suite for managing manual refunds, chargebac
 
 1. Install dependencies:
    `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
+2. Run the app:
    `npm run dev`
 
 ## Scripts
