@@ -1,25 +1,22 @@
 
 import React, { useState } from 'react';
-import { Search, Info, Sparkles, ArrowRight, ShieldCheck, Clock, XCircle } from 'lucide-react';
-import { getTransactionInsight } from '../services/geminiService';
+import { Search, Info, ArrowRight, ShieldCheck, Clock, XCircle } from 'lucide-react';
 import { TransactionStatus } from '../types';
 
 const StatusCheck: React.FC = () => {
   const [ref, setRef] = useState('');
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<TransactionStatus | null>(null);
-  const [insight, setInsight] = useState<string | null>(null);
 
-  const handleSearch = async (e: React.FormEvent) => {
+  const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (!ref) return;
-    
+
     setLoading(true);
     setResult(null);
-    setInsight(null);
 
     // Simulate database lookup
-    setTimeout(async () => {
+    setTimeout(() => {
       const mockResult: TransactionStatus = {
         reference: ref,
         amount: Math.floor(Math.random() * 500) + 10,
@@ -27,13 +24,9 @@ const StatusCheck: React.FC = () => {
         date: new Date().toISOString().split('T')[0],
         type: 'Payment'
       };
-      
+
       setResult(mockResult);
       setLoading(false);
-
-      // Get AI Insight
-      const aiInsight = await getTransactionInsight(mockResult);
-      setInsight(aiInsight);
     }, 1000);
   };
 
@@ -112,18 +105,6 @@ const StatusCheck: React.FC = () => {
                   <p className="text-gray-800">{result.type}</p>
                 </div>
               </div>
-            </div>
-
-            <div className="bg-brand-lime/10 border-l-4 border-brand-lime p-6 rounded-r-2xl flex items-start space-x-4 transition-colors">
-               <div className="p-2 bg-brand-lime rounded-lg text-brand-purple shadow-sm">
-                  <Sparkles size={20} />
-               </div>
-               <div>
-                 <h5 className="font-bold text-brand-purple mb-1">AI Intelligence Insight</h5>
-                 <p className="text-gray-700 text-sm leading-relaxed">
-                   {insight || 'Analyzing transaction patterns...'}
-                 </p>
-               </div>
             </div>
           </div>
 
