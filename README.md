@@ -6,7 +6,7 @@
 
 A comprehensive finance back-office suite for managing manual refunds, chargebacks, transaction tracking, and ledger resynchronization — with intelligent insights powered by Gemini.
 
-**Live app:** http://guilherme.stracini.com.br/finops-pro-backoffice/
+**Live app:** https://guilherme.stracini.com.br/finops-pro-backoffice/
 
 ## Features
 
