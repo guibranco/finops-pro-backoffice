@@ -1,4 +1,4 @@
-# FinOps Pro — Finance Back-Office
+# 💸📅 FinOps Pro — Finance Back-Office
 
 A comprehensive finance back-office suite for managing manual refunds, chargebacks, transaction tracking, and ledger resynchronization.
 
