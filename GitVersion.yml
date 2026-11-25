@@ -1,2 +1,8 @@
+calculation:
+  mode: ContinuousDeployment
+  tag-prefix: "[vV]"
+output:
+  assembly-file-versioning-scheme: MajorMinorPatch
+  assembly-informational-format: "{MajorMinorPatch}{PreReleaseLabelWithDash}+{ShortSha}"
+  assembly-versioning-scheme: MajorMinorPatch
 workflow: GitHubFlow/v1
-mode: ContinuousDeployment
